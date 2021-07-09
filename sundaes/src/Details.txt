@@ -1,0 +1,39 @@
+jest-dom: comes with create-create-app and it is imported before every test by src/setupTest.js. It makes matchers available.
+DOM-based matchers are matchers like to be in document that really apply only to a virtual DOM, examples: toBeVisible(),
+toBeChecked() and more. 
+
+React Testing Library helps with: 
+1) rendering components into virtual DOM  2) searching virtual DOM  3) interacting with virtual DOM
+However it needs something that will find tests, run them and will make assertions and that something is Jest (you can use 
+alternative). When you type "npm test" it will run "react-scripts-test" which will run "jest" in "watch" mode behind the scenes.
+
+There is a global test() method that takes two arguments: 1) string description of the test (uses this argument to tell when or
+which test fails)  2) test function. If error is thrown then test fails otherwise passes.
+
+Empty test will pass
+test('Empty test', () => {
+  
+});
+
+If thrown error, test will fail
+test('Throw error', () => {
+  throw new Error('test failed due to threw');
+});
+
+*******************************************************************************************************************************
+Test-Driven Development (TDD)
+. Write tests before writing code and then write code according to "spec" set by tests
+. Often called "red-green" testing. Tests fail before code is written
+
+Types of Tests:
+1) Unit tests: Tests one unit of code in isolation.
+2) Integration tests: Where multiple units of tests work together.
+3) Functional tests: tests a particular function (behaviour) of software
+4) Acceptance browser/End-to-end (E2E) tests: use a actual browser and server (Selenium, Cypress)
+
+Difference b/w Functional and Unit Testing:
+Unit Testing                                                                            Functional Testing
+. Isolated, mock dependencies, tests internals, very easy                . Include all relevant units, test behaviour, close to how
+to pinpoint failures                                                      users interact with software, robust tests
+. Further (less tightly) from how users interact with the software       . More difficult to debug failing tests
+. More likely to break with refactoring
